@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Wick - StreamFlix</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<div class="logo">StreamFlix</div>
+</nav>
+
+<div class="player-container">
+
+<h1>John Wick</h1>
+
+<div class="movie-info">
+
+<p><strong>Genre :</strong> Action</p>
+
+<p><strong>Année :</strong> 2014</p>
+
+<p><strong>Durée :</strong> 1h 41min</p>
+
+<p>
+Un ancien tueur à gages reprend du service pour se venger après un événement tragique.
+</p>
+
+</div>
+
+<button id="favoriteBtn">
+⭐ Ajouter aux favoris
+</button>
+
+</div>
+
+<script>
+const favoriteBtn = document.getElementById("favoriteBtn");
+
+favoriteBtn.addEventListener("click", () => {
+let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+if(!favoris.includes("John Wick")){
+    favoris.push("John Wick");
+}
+
+localStorage.setItem("favoris", JSON.stringify(favoris));
+favoriteBtn.textContent = "✅ Ajouté aux favoris";
+});
+</script>
+
+</body>
+</html>

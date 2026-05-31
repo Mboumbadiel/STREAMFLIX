@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil - StreamFlix</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+StreamFlix
+</div>
+
+</nav>
+
+<div class="profile-box">
+
+<h1>Mon Profil</h1>
+
+<img src="https://picsum.photos/200" alt="Profil">
+
+<h2>FLIX</h2>
+
+<p>Membre StreamFlix</p>
+
+<h3>⭐ Mes Favoris</h3>
+
+<div id="favoriFilm"></div>
+
+<div class="movie-container">
+
+<div class="movie-card">
+<img src="https://picsum.photos/250/350?31">
+</div>
+
+<div class="movie-card">
+<img src="https://picsum.photos/250/350?32">
+</div>
+
+</div>
+
+<button>Historique</button>
+
+<button>Déconnexion</button>
+
+<button onclick="window.location.href='favorites.html'">
+Voir mes favoris
+</button>
+
+</div>
+
+<script>
+const favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+const zone = document.getElementById("favoriFilm");
+
+favoris.forEach(film => {
+    const carte = document.createElement("div");
+    carte.textContent = "🎬 " + film;
+    carte.style.margin = "10px";
+    carte.style.padding = "10px";
+    carte.style.border = "1px solid #d4af37";
+    carte.style.borderRadius = "8px";
+
+    zone.appendChild(carte);
+});
+</script>
+
+</body>
+</html>

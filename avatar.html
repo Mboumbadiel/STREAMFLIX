@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatar - StreamFlix</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<div class="logo">StreamFlix</div>
+</nav>
+
+<div class="player-container">
+
+<h1>Avatar</h1>
+
+<img src="https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg" width="300">
+
+<div class="movie-info">
+
+<p><strong>Genre :</strong> Science-fiction</p>
+
+<p><strong>Année :</strong> 2009</p>
+
+<p><strong>Durée :</strong> 2h 42min</p>
+
+<p>
+Un ancien marine est envoyé sur Pandora, une planète extraordinaire où il découvre un monde fascinant et un conflit qui changera son destin.
+</p>
+
+</div>
+
+<button id="favoriteBtn">
+⭐ Ajouter aux favoris
+</button>
+
+<button onclick="window.location.href='index.html'">
+Retour à l'accueil
+</button>
+
+</div>
+
+<script>
+const favoriteBtn = document.getElementById("favoriteBtn");
+
+favoriteBtn.addEventListener("click", () => {
+let favoris = JSON.parse(localStorage.getItem("favoris")) || [];
+
+if(!favoris.includes("Avatar")){
+    favoris.push("Avatar");
+}
+
+localStorage.setItem("favoris", JSON.stringify(favoris));
+favoriteBtn.textContent = "✅ Ajouté aux favoris";
+});
+</script>
+
+</body>
+</html>
